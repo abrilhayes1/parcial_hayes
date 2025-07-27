@@ -76,7 +76,7 @@ session_start();
                                 <a class='nav-link text-dark fw-semibold' href='../../admin/ver_recetas.php'>Ver Libros Publicados</a>
                             </li>
                             <li class='nav-item'>
-                                <a class='nav-link text-dark fw-semibold' href='../../admin/crear_categoria.php'>Ver Libros Publicados</a>
+                                <a class='nav-link text-dark fw-semibold' href='../admin/crear_categoria.php'>Crear categoria</a>
                             </li>
                             <li class='nav-item'>
                             <a class='nav-link text-dark fw-semibold' href='../pages/quienes_somos.php'>Quienes somos</a>

@@ -12,7 +12,7 @@ if (!$_SESSION['id_usuarios']) {
         <div class="col-md-8 col-lg-6">
             <div class="card shadow border-0">
                 <div class="card-header bg-purple text-white text-center fw-bold" style="background-color: #c084fc;">
-                    <h4>Publicar Receta</h4>
+                    <h4>Publicar Libro</h4>
                 </div>
                 <div class="card-body">
                     <form action="alta/alta.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -25,17 +25,10 @@ if (!$_SESSION['id_usuarios']) {
                             <label for="descripcion" class="form-label">Descripción</label>
                             <textarea id="descripcion" name="descripcion" class="form-control" rows="2" required></textarea>
                         </div>
-
                         <div class="mb-3">
-                            <label for="ingredientes" class="form-label">Ingredientes</label>
-                            <textarea id="ingredientes" name="ingredientes" class="form-control" rows="2" required></textarea>
+                            <label for="ingredientes" class="form-label">Autor</label>
+                            <input id="titulo" name="titulo" type="text" class="form-control" required>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="pasos" class="form-label">Pasos</label>
-                            <textarea id="pasos" name="pasos" class="form-control" rows="2" required></textarea>
-                        </div>
-
                         <div class="mb-3">
                             <label for="media" class="form-label">Imagen</label>
                             <input id="media" name="media" type="file" class="form-control" accept="image/*">
