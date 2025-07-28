@@ -5,8 +5,8 @@ require_once("../../components/security/admin.php");
 if (!isset($_GET['id'])) {
     die("No llegó el parámetro ID");
 }
-
 $id = $_GET['id'];
+
 
 $consulta = "SELECT * FROM categorias WHERE id_categorias='$id'";
 $resultado = mysqli_query($con, $consulta) or die("Error en la consulta: " . mysqli_error($con));
