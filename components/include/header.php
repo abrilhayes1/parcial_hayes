@@ -33,7 +33,7 @@ session_start();
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <?php
-                        require_once("../components/conf/conf.php");
+                        require_once(__DIR__ . '/../conf/conf.php');
                         if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 2) {
                             $consulta = "SELECT * FROM categorias";
                             $resultado = mysqli_query($con, $consulta);

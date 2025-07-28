@@ -27,7 +27,7 @@ if (!$_SESSION['id_usuarios']) {
                         </div>
                         <div class="mb-3">
                             <label for="ingredientes" class="form-label">Autor</label>
-                            <input id="titulo" name="titulo" type="text" class="form-control" required>
+                            <input id="autor" name="autor" type="text" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <label for="media" class="form-label">Imagen</label>

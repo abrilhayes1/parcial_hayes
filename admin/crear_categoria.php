@@ -27,10 +27,10 @@ if (!$_SESSION['id_usuarios']) {
                     </form>
                 </div>
             </div>
-            <?php if (isset($_GET['eliminada'])): ?>
+            <?php if (isset($_POST['eliminada'])): ?>
                 <div class="alert alert-success">Categoría eliminada correctamente.</div>
             <?php endif; ?>
-            <?php if (isset($_GET['editada'])): ?>
+            <?php if (isset($_POST['editada'])): ?>
                 <div class="alert alert-success">Categoría modificada correctamente.</div>
             <?php endif; ?>
             <div class="card shadow border-0">
@@ -48,7 +48,7 @@ if (!$_SESSION['id_usuarios']) {
                                 <li class='list-group-item d-flex justify-content-between align-items-center'>
                                     <form action='../admin/modi/mod_cat.php' method='post' class='d-flex w-100'>
                                         <input type='hidden' name='id' value='{$cat['id_categorias']}'>
-                                        <input type='text' name='id' class='form-control me-2' value='{$cat['nombre']}' required>
+                                        <input type='text' name='categoria' class='form-control me-2' value='{$cat['nombre']}' required>
                                         <button type='submit' class='btn btn-sm btn-outline-primary me-2'>Editar</button>
                                     </form>
                                     <form action='../admin/baja/eliminar_cat.php' method='post' class='d-flex'>
