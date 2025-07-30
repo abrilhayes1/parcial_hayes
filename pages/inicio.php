@@ -4,7 +4,7 @@ include_once("../components/include/header.php");
 ?>
 
 
-<section class="py-16 bg-purple-600 text-white text-center">
+<section class="py-16 bg-purple-600 text-black text-center">
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">La Página Siguiente</h1>
         <p class="text-lg md:text-xl mb-6">Donde los libros, las recetas y el café se encuentran</p>
