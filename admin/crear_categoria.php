@@ -15,7 +15,7 @@ if (!$_SESSION['id_usuarios']) {
                     <h1>Agregar categoría de libros</h1>
                 </div>
                 <div class="card-body">
-                    <form action="alta/alta_cat.php" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <form action="alta/alta_cat.php" method="get" enctype="multipart/form-data" class="needs-validation" novalidate>
                         <div class="mb-3">
                             <label for="categoria" class="form-label">Nombre de la categoría</label>
                             <input id="categoria" name="categoria" type="text" class="form-control" required>
@@ -27,10 +27,10 @@ if (!$_SESSION['id_usuarios']) {
                     </form>
                 </div>
             </div>
-            <?php if (isset($_POST['eliminada'])): ?>
-                <div class="alert alert-success">Categoría eliminada correctamente.</div>
+            <?php if (isset($_GET['eliminada'])): ?>
+                <div class="alert alert-danger">Categoría eliminada correctamente.</div>
             <?php endif; ?>
-            <?php if (isset($_POST['editada'])): ?>
+            <?php if (isset($_GET['editada'])): ?>
                 <div class="alert alert-success">Categoría modificada correctamente.</div>
             <?php endif; ?>
             <div class="card shadow border-0">
@@ -46,12 +46,12 @@ if (!$_SESSION['id_usuarios']) {
                         while ($cat = mysqli_fetch_array($resultado)) {
                             echo "
                                 <li class='list-group-item d-flex justify-content-between align-items-center'>
-                                    <form action='../admin/modi/mod_cat.php' method='post' class='d-flex w-100'>
+                                    <form action='../admin/modi/mod_cat.php' method='get' class='d-flex w-100'>
                                         <input type='hidden' name='id' value='{$cat['id_categorias']}'>
                                         <input type='text' name='categoria' class='form-control me-2' value='{$cat['nombre']}' required>
                                         <button type='submit' class='btn btn-sm btn-outline-primary me-2'>Editar</button>
                                     </form>
-                                    <form action='../admin/baja/eliminar_cat.php' method='post' class='d-flex'>
+                                    <form action='baja/eliminar_cat.php' method='get' class='d-flex'>
                                         <input type='hidden' name='id' value='{$cat['id_categorias']}'>
                                         <button type='submit' class='btn btn-sm btn-outline-danger'>Eliminar</button>
                                     </form>

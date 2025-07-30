@@ -5,12 +5,12 @@ require_once("../../components/security/admin.php");
 
 $categoria;
 $id;
-if(isset($_POST['categoria']) && isset($_POST['id']) ){
-    $categoria = $_POST['categoria'];
-    $id = $_POST['id'];
+if(isset($_GET['categoria']) && isset($_GET['id']) ){
+    $categoria = $_GET['categoria'];
+    $id = $_GET['id'];
     $consulta = "UPDATE categorias SET nombre='$categoria' WHERE id_categorias='$id'";
     mysqli_query($con,$consulta);
-    header("Location: ../crear_categoria.php ");
+    header("Location: ../crear_categoria.php?editada=1");
 
 }
 

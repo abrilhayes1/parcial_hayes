@@ -25,7 +25,7 @@ if ($con != NULL) {
                 $_SESSION['nombre'] = $datos['nombre'];
                 $_SESSION['tipo'] = $datos['fk_id_tipo_usuario'];
                 if ($datos['fk_id_tipo_usuario'] == 1) {
-                    header("Location: ../../admin/admin.index.php");
+                    header("Location: ../../pages/inicio.php");
                 } else if ($datos['fk_id_tipo_usuario'] == 2) {
                     header("Location: ../../user/panel.php");
                 }
