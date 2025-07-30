@@ -16,7 +16,7 @@ session_start();
     
 </head>
 
-<body class="bg-gray-100 text-gray-800 min-h-screen">
+<body class="bg-gray-100 text-gray-800 min-h-screen w-full">
     <header class="bg-[#c084fc] shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
@@ -42,8 +42,8 @@ session_start();
                     } else {
                         if ($_SESSION['tipo'] == 1) {
                             echo "
-                            <li><a href='../../admin/ver_usuarios.php' class='hover:underline block py-1'>Ver Usuarios</a></li>
-                            <li><a href='../../admin/ver_recetas.php' class='hover:underline block py-1'>Ver Libros Publicados</a></li>
+                            <li><a href='/parcial_hayes/admin/ver_usuarios.php' class='hover:underline block py-1'>Ver Usuarios</a></li>
+                            <li><a href='/parcial_hayes/admin/ver_libros_publicados.php' class='hover:underline block py-1'>Ver Libros Publicados</a></li>
                             <li><a href='../admin/crear_categoria.php' class='hover:underline block py-1'>Crear Categoría</a></li>
                             <li><a href='../pages/quienes_somos.php' class='hover:underline block py-1'>Quienes somos</a></li>
                             ";

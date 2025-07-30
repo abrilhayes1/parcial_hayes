@@ -13,11 +13,16 @@ include_once("../components/include/header.php");
             $resultado = mysqli_query($con, $consulta);
 
             while ($fila = mysqli_fetch_array($resultado)) {
+                if ($fila['fk_id_tipo_usuario'] == 1) {
+                            $tipo = "Administrador";
+                } elseif ($fila['fk_id_tipo_usuario'] == 2) {
+                            $tipo = "Usuario";
+                }
                 echo "
                     <div class='bg-white text-black rounded-lg shadow-md p-4'>
                         <h3 class='text-lg font-semibold mb-2'>{$fila['nombre']} {$fila['apellido']}</h3>
-                        <p class='text-sm mb-1'><strong>Correo:</strong> {$fila['correo']}</p>
-                        <p class='text-sm'><strong>Tipo:</strong> {$fila['tipo']}</p>
+                        <p class='text-sm mb-1'><strong>Correo:</strong> {$fila['mail']}</p>
+                        <p class='text-sm'><strong>Tipo:</strong> {$fila['fk_id_tipo_usuario']}</p>
                     </div>
                 ";
             }
