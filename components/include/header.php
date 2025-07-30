@@ -11,104 +11,68 @@ session_start();
     <title>La Página Siguiente</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
 </head>
 
-<body class="bg-light">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #c084fc;">
-            <div class="container">
-
-                <a class="navbar-brand fw-bold d-flex align-items-center" href="../index.php">
-                    <i class="bi bi-journal-bookmark-fill me-2 fs-4"></i>
-                    La siguiente página
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+    <header class="bg-[#c084fc] shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            <div class="flex items-center">
+                <a href="../index.php" class="text-black font-bold text-xl flex items-center gap-2">
+                    📘 La siguiente página
                 </a>
-
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <?php
-                        require_once(__DIR__ . '/../conf/conf.php');
-                        if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 2) {
-                            $consulta = "SELECT * FROM categorias";
-                            $resultado = mysqli_query($con, $consulta);
-                            while ($fila = mysqli_fetch_array($resultado)) {
-                                echo "
-                                <li class='nav-item'>
-                                    <a class='nav-link text-dark fw-semibold' href='../pages/categoria.php?id={$fila['id_categoria']}'>
-                                        {$fila['nombre']}
-                                    </a>
-                                </li>";
-                            }
-                        }
-                        ?>
-                    </ul>
-
-
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <?php
-                        if (!isset($_SESSION['id_usuarios'])) {
-                            echo "
-                        <li class='nav-item'>
-                            <a class='nav-link text-dark fw-semibold' href='../pages/quienes_somos.php'>Quienes somos</a>
-                        </li>
-                        <li class='nav-item'>
-                            <a class='nav-link text-dark fw-semibold' href='../pages/registro.php'>Registrarse</a>
-                        </li>
-                        <li class='nav-item'>
-                            <a class='nav-link text-dark fw-semibold' href='../pages/logIn.php'>Iniciar sesion</a>
-                        </li>
-                        
-                        ";
-                        } else {
-
-                            if ($_SESSION['tipo'] == 1) {
-                                echo "
-                            <li class='nav-item'>
-                                <a class='nav-link text-dark fw-semibold' href='../../admin/ver_usuarios.php'>Ver Usuarios</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link text-dark fw-semibold' href='../../admin/ver_recetas.php'>Ver Libros Publicados</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link text-dark fw-semibold' href='../admin/crear_categoria.php'>Crear categoria</a>
-                            </li>
-                            <li class='nav-item'>
-                            <a class='nav-link text-dark fw-semibold' href='../pages/quienes_somos.php'>Quienes somos</a>
-                        </li>
-                            ";
-                            }
-
-
-                            if ($_SESSION['tipo'] == 2) {
-                                echo "
-                            <li class='nav-item'>
-                            <a class='nav-link text-dark fw-semibold' href='../pages/quienes_somos.php'>Quienes somos</a>
-                            </li>
-                            <li class='nav-item'>
-                                <a class='nav-link text-dark fw-semibold' href='../user/panel.php'>Publicar Libro</a>
-                            </li>
-                            
-                            ";
-                            }
-
-
-                            echo "
-                        <li class='nav-item'>
-                            <a class='nav-link text-danger fw-semibold' href='../components/security/logout.php'>Cerrar Sesión</a>
-                        </li>
-                        ";
-                        }
-                        ?>
-                    </ul>
-                </div>
             </div>
-        </nav>
-    </header>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-black focus:outline-none text-2xl">
+                    ☰
+                </button>
+            </div>
+            <div id="menu" class="hidden md:flex md:items-center md:gap-6 w-full md:w-auto mt-4 md:mt-0">
+                <ul class="flex flex-col md:flex-row md:gap-4 text-black font-medium w-full md:w-auto">
+                    <?php
+                    if (!isset($_SESSION['id_usuarios'])) {
+                        echo "
+                        <li><a href='../pages/quienes_somos.php' class='hover:underline block py-1'>Quienes somos</a></li>
+                        <li><a href='../pages/registro.php' class='hover:underline block py-1'>Registrarse</a></li>
+                        <li><a href='../pages/logIn.php' class='hover:underline block py-1'>Iniciar sesión</a></li>
+                        ";
+                    } else {
+                        if ($_SESSION['tipo'] == 1) {
+                            echo "
+                            <li><a href='../../admin/ver_usuarios.php' class='hover:underline block py-1'>Ver Usuarios</a></li>
+                            <li><a href='../../admin/ver_recetas.php' class='hover:underline block py-1'>Ver Libros Publicados</a></li>
+                            <li><a href='../admin/crear_categoria.php' class='hover:underline block py-1'>Crear Categoría</a></li>
+                            <li><a href='../pages/quienes_somos.php' class='hover:underline block py-1'>Quienes somos</a></li>
+                            ";
+                        }
+
+                        if ($_SESSION['tipo'] == 2) {
+                            echo "
+                            <li><a href='../pages/quienes_somos.php' class='hover:underline block py-1'>Quienes somos</a></li>
+                            <li><a href='../user/panel.php' class='hover:underline block py-1'>Publicar Libro</a></li>
+                            ";
+                        }
+
+                        echo "
+                        <li><a href='../components/security/logout.php' class='text-red-700 hover:text-red-800 block py-1'>Cerrar sesión</a></li>
+                        ";
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</header>
+
 
     <main class="container mt-4">

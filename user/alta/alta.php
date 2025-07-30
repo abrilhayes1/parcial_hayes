@@ -3,8 +3,7 @@ include_once("../../components/conf/conf.php");
 
 $titulo = '';
 $descripcion = '';
-$ingredientes = '';
-$pasos = '';
+$autor = '';
 $media = '';
 $categoria = '';
 $usuario = '';
@@ -14,8 +13,7 @@ if (isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['aut
 
     $titulo = mysqli_real_escape_string($con, $_POST['titulo']);
     $descripcion = mysqli_real_escape_string($con, $_POST['descripcion']);
-    $ingredientes = mysqli_real_escape_string($con, $_POST['autor']); 
-    $pasos = ''; 
+    $autor = mysqli_real_escape_string($con, $_POST['autor']); 
     $categoria = mysqli_real_escape_string($con, $_POST['categoria']);
     $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
 
@@ -28,8 +26,7 @@ if (isset($_POST['titulo']) && isset($_POST['descripcion']) && isset($_POST['aut
         $media = "default.jpg"; 
     }
 
-    $consulta = "INSERT INTO `recetas`(`titulo`, `imagen`, `descripcion`, `ingredientes`, `pasos`, `fk_usuarios`, `fk_id_categorias`) 
-                VALUES ('$titulo','$media','$descripcion','$ingredientes','$pasos','$usuario','$categoria')";
+    $consulta = "INSERT INTO `recetas`(`titulo`, `imagen`, `descripcion`, `autor`, `fk_usuarios`, `fk_id_categorias`) VALUES ('$titulo','$media','$descripcion','$autor','$usuario','$categoria')";
 
     mysqli_query($con, $consulta) or die("Error en la consulta: " . mysqli_error($con));
     header("Location: ../../index.php");
