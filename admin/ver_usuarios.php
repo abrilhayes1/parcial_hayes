@@ -12,17 +12,19 @@ include_once("../components/include/header.php");
             $consulta = "SELECT * FROM usuarios";
             $resultado = mysqli_query($con, $consulta);
 
-            while ($fila = mysqli_fetch_array($resultado)) {
-                if ($fila['fk_id_tipo_usuario'] == 1) {
-                            $tipo = "Administrador";
-                } elseif ($fila['fk_id_tipo_usuario'] == 2) {
-                            $tipo = "Usuario";
-                }
+            if (!$resultado) {
+                die("Error en la consulta: " . mysqli_error($con));
+            }
+
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $tipo = ($fila['fk_id_tipo_usuario'] == 1) ? "Administrador" : "Usuario";
+
                 echo "
                     <div class='bg-white text-black rounded-lg shadow-md p-4'>
                         <h3 class='text-lg font-semibold mb-2'>{$fila['nombre']} {$fila['apellido']}</h3>
                         <p class='text-sm mb-1'><strong>Correo:</strong> {$fila['mail']}</p>
-                        <p class='text-sm'><strong>Tipo:</strong> {$fila['fk_id_tipo_usuario']}</p>
+                        <p class='text-sm'><strong>Tipo:</strong> $tipo</p>
+                        <a href='info_usuario.php?id={$fila['id_usuarios']}' class='inline-block mt-4 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700'>Ver información</a>
                     </div>
                 ";
             }

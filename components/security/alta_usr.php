@@ -6,6 +6,7 @@ if ($con != NULL) {
         $nombre = mysqli_real_escape_string($con, $_POST['nombre']);
         $apellido = mysqli_real_escape_string($con, $_POST['apellido']);
         $mail = mysqli_real_escape_string($con, $_POST['correo']);
+        $fecha_nacimiento = mysqli_real_escape_string($con, $_POST['fecha_nacimiento']);
         $pass_uno = mysqli_real_escape_string($con, $_POST['contra_uno']);
         $pass_dos = mysqli_real_escape_string($con, $_POST['contra_dos']);
 
@@ -17,8 +18,8 @@ if ($con != NULL) {
                 header("Location: ../../pages/registro.php?mail=no");
                 exit;
             } else {
-                $insertar = "INSERT INTO usuarios (nombre, apellido, mail, pass, fk_id_tipo_usuario)
-                        VALUES ('$nombre', '$apellido', '$mail', MD5('$pass_uno'), '2')";
+                $insertar = "INSERT INTO usuarios (nombre, apellido, mail, fecha_nacimiento, pass, fk_id_tipo_usuario)
+                        VALUES ('$nombre', '$apellido', '$mail','$fecha_nacimiento', MD5('$pass_uno'), '2')";
 
                 $resultado_insert = mysqli_query($con, $insertar);
                 if (!$resultado_insert) {

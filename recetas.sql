@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2025 a las 16:16:47
+-- Tiempo de generación: 05-08-2025 a las 16:24:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -87,6 +87,8 @@ CREATE TABLE `usuarios` (
   `apellido` varchar(45) NOT NULL,
   `mail` varchar(45) NOT NULL,
   `pass` varchar(45) NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
   `fk_id_tipo_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -94,10 +96,10 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `apellido`, `mail`, `pass`, `fk_id_tipo_usuario`) VALUES
-(1, 'Valentin', 'Oliver', 'v@v.com', '81dc9bdb52d04dc20036dbd8313ed055', 2),
-(2, 'Abril', 'Hayes', 'a@a.com', '81dc9bdb52d04dc20036dbd8313ed055', 1),
-(3, 'Celeste ', 'Nuñez', 'c@c.com', '81dc9bdb52d04dc20036dbd8313ed055', 2);
+INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `apellido`, `mail`, `pass`, `fecha_nacimiento`, `fecha_registro`, `fk_id_tipo_usuario`) VALUES
+(1, 'Valentin', 'Oliver', 'v@v.com', '81dc9bdb52d04dc20036dbd8313ed055', NULL, '2025-08-05 10:33:36', 2),
+(2, 'Abril', 'Hayes', 'a@a.com', '81dc9bdb52d04dc20036dbd8313ed055', NULL, '2025-08-05 10:33:36', 1),
+(3, 'Celeste ', 'Nuñez', 'c@c.com', '81dc9bdb52d04dc20036dbd8313ed055', NULL, '2025-08-05 10:33:36', 2);
 
 --
 -- Índices para tablas volcadas

@@ -38,6 +38,13 @@ include_once("../components/include/header.php");
             </div>
 
             <div>
+                <label for="fecha_nacimiento" class="block mb-2 font-medium">Fecha de nacimiento:</label>
+                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="border rounded px-3 py-2 w-full mb-4" required>
+            </div>
+
+
+
+            <div>
                 <label for="contra_uno" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
                 <input id="contra_uno" name="contra_uno" type="password" required
                     class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400">

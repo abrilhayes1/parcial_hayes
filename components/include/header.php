@@ -53,6 +53,7 @@ session_start();
                             echo "
                             <li><a href='../pages/quienes_somos.php' class='hover:underline block py-1'>Quienes somos</a></li>
                             <li><a href='../user/panel.php' class='hover:underline block py-1'>Publicar Libro</a></li>
+                            <li><a href='/parcial_hayes/user/ver_perfil_usr.php' class='hover:underline block py-1'>Ver perfil</a></li>
                             ";
                         }
 
