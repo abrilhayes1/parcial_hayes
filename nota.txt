@@ -1,0 +1,10 @@
+Hola profe, cómo estás?
+Te escribo este texto para defender el final. 
+
+Decidí usar tailwind como framework de estilos. Lo implemente en el tercer cuatrimestre en el proyecto de Laravel y es mucho mas cómodo que Bootstrap, así que preferí trabajar con eso.
+Me enfoque bastante en los estilos de la pagina ademas de las funcionalidades, pero igualmente todas funcionan. Los usuarios se pueden registrar y hacer logIn, los administradores hay que ingresarlos por base de datos. Separé las vistas de administrador para que estén diferenciadas de las de los clientes, y estos últimos también pueden editar su perfil desde un formulario.
+
+Además, agregué un pequeño script en Js para que el menú hamburguesa sea responsive y no se vea desordenado en pantallas chicas.
+
+Nos vemos en el final,
+Saludos, Abril.

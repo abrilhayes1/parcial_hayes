@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once("../conf/conf.php");
+echo __DIR__;
+require_once($_SERVER['DOCUMENT_ROOT'] . "/parcial_hayes/components/conf/conf.php");
+
 
 if (!isset($_SESSION['id_usuarios'])) {
     header("Location: login.php");
@@ -22,7 +24,7 @@ $update = "UPDATE usuarios SET
 $result = mysqli_query($con, $update);
 
 if ($result) {
-    header("Location: ver_perfil_usr.php?edit=ok");
+    header("Location: ../ver_perfil_usr.php?edit=ok");
     exit;
 } else {
     echo "Error al actualizar: " . mysqli_error($con);

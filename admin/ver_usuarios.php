@@ -17,7 +17,7 @@ include_once("../components/include/header.php");
             }
 
             while ($fila = mysqli_fetch_assoc($resultado)) {
-                $tipo = ($fila['fk_id_tipo_usuario'] == 1) ? "Administrador" : "Usuario";
+                $tipo = ($fila['fk_id_tipo_usuario'] == 1) ? "Administrador" : "Cliente";
 
                 echo "
                     <div class='bg-white text-black rounded-lg shadow-md p-4'>
